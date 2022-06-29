@@ -13,7 +13,7 @@ public class MySQLConnection {
                 USESSL = "false",
                 PUBLICKEY = "true";
         String dataSource = String.format("jdbc:mysql://localhost:3306/%s?user=%s"+
-                "&password=%s&serverTimezone=%s&useSSL=%sallowPublicKeyRetrieval=%s",
+                        "&password=%s&serverTimezone=%s&useSSL=%s&allowPublicKeyRetrieval=%s",
                 DBNAME,USERNAME,PASSWORD,TIMEZONE,USESSL,PUBLICKEY);
         try{
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
@@ -27,12 +27,14 @@ public class MySQLConnection {
     public static void main(String[] args) {
         Connection conn = new MySQLConnection().getConnection();
         if (conn != null){
-            try{
-                System.out.println("Conexion exitosa");
+            try {
+                System.out.println("Conexion realizada");
                 conn.close();
             }catch (SQLException e){
+
             }
-        }else{
+        }
+        else{
             System.out.println("Conexion fallida");
         }
     }
