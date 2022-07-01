@@ -35,12 +35,13 @@ public class ServletPokemon extends HttpServlet {
         switch (action){
             case "/get-pokemons":
                 request.setAttribute("pokemons",servicePokemon.getAll());
-                urlRedirect = "/views/pokemon/index.jsp;";
+                urlRedirect = "/views/pokemon/index.jsp";
                 break;
             default:
                 request.setAttribute("pokemons",servicePokemon.getAll());
                 urlRedirect = "/get-pokemons";
                 break;
         }
+        request.getRequestDispatcher(urlRedirect).forward(request, response);
     }
 }

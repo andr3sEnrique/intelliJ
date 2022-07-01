@@ -31,8 +31,27 @@ public class DaoPokemon {
                 pokemons.add(pokemon);
             }
         }catch (SQLException e){
-
+        } finally {
+            closeConnection();
         }
         return pokemons;
+    }
+    public void closeConnection(){
+        try{
+            if(conn != null){
+                conn.close();
+            }
+            if(pstm != null){
+                pstm.close();
+            }
+            if(cstm != null){
+                cstm.close();
+            }
+            if(rs != null){
+                rs.close();
+            }
+        }catch (SQLException e){
+
+        }
     }
 }
