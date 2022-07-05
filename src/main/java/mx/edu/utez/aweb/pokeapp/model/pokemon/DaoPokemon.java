@@ -5,6 +5,8 @@ import mx.edu.utez.aweb.pokeapp.utils.MySQLConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DaoPokemon {
     Connection conn;
@@ -31,6 +33,8 @@ public class DaoPokemon {
                 pokemons.add(pokemon);
             }
         }catch (SQLException e){
+            Logger.getLogger(DaoPokemon.class.getName())
+                    .log(Level.SEVERE, "Error findAll", e);
         } finally {
             closeConnection();
         }

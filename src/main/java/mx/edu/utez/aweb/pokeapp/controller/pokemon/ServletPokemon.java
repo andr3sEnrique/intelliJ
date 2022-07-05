@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 urlPatterns = {
         "/get-pokemons",
         "/add-pokemon",
+        "/create-pokemon",
         "/update-pokemon",
         "/get-pokemon"
 })
@@ -36,6 +37,9 @@ public class ServletPokemon extends HttpServlet {
             case "/get-pokemons":
                 request.setAttribute("pokemons",servicePokemon.getAll());
                 urlRedirect = "/views/pokemon/index.jsp";
+                break;
+            case "/create-pokemon":
+                urlRedirect = "/views/pokemon/create.jsp";
                 break;
             default:
                 request.setAttribute("pokemons",servicePokemon.getAll());

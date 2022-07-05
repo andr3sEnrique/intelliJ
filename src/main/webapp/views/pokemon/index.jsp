@@ -23,7 +23,14 @@
                 <c:if test="${param['result']}">
                     <p><c:out value="${param['message']}"></c:out></p>
                 </c:if>
-                <div class="card-header">POKEMONS</div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">POKEMONS</div>
+                        <div class="col-6 text-end">
+                            <a href="create-pokemon" class="btn btn-outline-success btn-sm">Registrar pokemon</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
                     <table class="table table-sm table-hover">
                         <thead>
