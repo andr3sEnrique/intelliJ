@@ -41,6 +41,7 @@
                         <th>Weight</th>
                         <th>Height</th>
                         <th>Type</th>
+                        <th>Acciones</th>
                         </thead>
                         <tbody>
                         <c:forEach var="pokemon" items="${pokemons}" varStatus="status">
@@ -65,6 +66,10 @@
                                 </td>
                                 <td>
                                     <c:out value="${pokemon.pokemonType}"></c:out>
+                                </td>
+                                <td>
+                                    <a href="get-pokemon?id=${pokemon.id}" class="btn btn-warning btn-sm">EDITAR</a>
+                                    <a href="delete-pokemon?id=${pokemon.id}" class="btn btn-danger btn-sm">ELIMINAR</a>
                                 </td>
                             </tr>
                         </c:forEach>
